@@ -79,3 +79,12 @@ alias mb="mackup backup"
 
 # Other
 alias cls="clear"
+alias cc="php artisan config:cache"
+alias cgu="composer global update"
+alias pu="clear && phpunit"
+alias nrd="npm run development"
+alias nrp="npm run production"
+alias nrw="npm run watch"
+alias pa="php artisan"
+alias pip="/usr/local/bin/pip3"
+alias python="/usr/local/bin/python3"
