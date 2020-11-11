@@ -87,10 +87,10 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 ###############################################################################
 
 # Disable hibernation (speeds up entering sleep mode)
-sudo pmset -a hibernatemode 0
+# sudo pmset -a hibernatemode 0
 
 # Disable the sudden motion sensor as it’s not useful for SSDs
-sudo pmset -a sms 0
+# sudo pmset -a sms 0
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -203,12 +203,12 @@ defaults write com.apple.dock no-bouncing -bool true
 defaults write com.apple.dock tilesize -int 64
 
 # Hide indicator lights for open applications in the Dock
-defaults write com.apple.dock show-process-indicators -bool false
+# defaults write com.apple.dock show-process-indicators -bool false
 
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
-defaults write com.apple.dock persistent-apps -array ""
+# defaults write com.apple.dock persistent-apps -array ""
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
