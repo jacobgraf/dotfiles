@@ -75,7 +75,7 @@ alias npmspatie="npm config set registry https://npm.spatie.be"
 alias subl='open -a "/Applications/Sublime Text.app" "`pwd`"'
 
 # Mackup
-alias mb="mackup backup"
+alias mb="mackup -f backup"
 
 # Restart touch bar
 alias touchbar="killall ControlStrip"
