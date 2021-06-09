@@ -23,10 +23,6 @@ ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
 rm $HOME/.vim
 ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
-# Symlink yarn prefs
-rm $HOME/.yarnrc
-ln -s $HOME/.dotfiles/shell/.yarnrc $HOME/.yarnrc
-
 # Symlink the Mackup config
 ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
 
@@ -38,22 +34,35 @@ git checkout d6a36b1 agnoster.zsh-theme
 cd ~/.dotfiles/shell
 chmod +x z.sh
 
+echo 'Configure npm'
+echo '-------------'
+# Create a directory for global packages and tell npm where to store globally installed packages
+mkdir "${HOME}/.npm-packages"
+npm config set prefix "${HOME}/.npm-packages"
+
 echo 'Install composer'
 echo '----------------'
+EXPECTED_COMPOSER_CHECKSUM="$(curl https://composer.github.io/installer.sig)"
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+ACTUAL_COMPOSER_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+if [ "$EXPECTED_COMPOSER_CHECKSUM" != "$ACTUAL_COMPOSER_CHECKSUM" ]
+then
+    >&2 echo 'ERROR: Invalid installer checksum'
+    rm composer-setup.php
+    exit 1
+fi
 php composer-setup.php
-php -r "unlink('composer-setup.php');"
+rm composer-setup.php
 mv composer.phar /usr/local/bin/composer
 
 echo 'Install homebrew'
 echo '----------------'
 echo install homebrew
 sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 echo 'Install node'
-echo '-----------'
+echo '------------'
 brew install node@8
 
 echo 'Install pkg-config'
@@ -91,14 +100,13 @@ brew install brew-cask
 
 echo 'Install some nice quicklook plugins'
 echo '-----------------------------------'
-brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
+brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip webp-quicklook suspicious-package
 
 echo 'Install php'
 echo '-----------'
-brew install php@7.0
-brew install php@7.1
-brew install php@7.2
 brew install php@7.4
+brew install php@8.0
+
 
 echo 'Install imagemagick'
 echo '-------------------'
@@ -122,7 +130,7 @@ pecl install redis
 
 echo 'Install laravel envoy'
 echo '---------------------'
-composer global require "laravel/envoy=~1.0"
+composer global require "laravel/envoy=~2.0"
 
 echo 'Install phpunit-watcher'
 echo '-----------------------'
@@ -139,8 +147,8 @@ valet install
 
 echo 'Install mysql'
 echo '-------------'
-brew install mysql@5.7
-brew services start mysql@5.7
+brew install mysql
+brew services start mysql
 
 echo 'Install yarn'
 echo '------------'

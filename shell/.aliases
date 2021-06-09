@@ -2,6 +2,7 @@
 alias phpunit="vendor/bin/phpunit"
 alias phpunitw="phpunit-watcher watch"
 alias a="php artisan"
+alias ar="php artisan remote"
 alias c="composer"
 alias cu="composer update"
 alias cr="composer require"
@@ -13,11 +14,13 @@ alias deploy-code='envoy run deploy-code'
 alias mfs='php artisan migrate:fresh --seed'
 alias nah='git reset --hard;git clean -df'
 alias p="phpunit"
+alias pp="php artisan test --parallel"
 alias pf="phpunit --filter "
 alias d="php artisan dusk"
-alias df="php artisan dusk --filter"
 alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.public | pbcopy'
+alias sail='./vendor/bin/sail'
+alias tunnel='valet share -subdomain=freekmurze -region=eu'
 
 # JavaScript
 alias jest="./node_modules/.bin/jest"
@@ -36,6 +39,10 @@ alias l="ls -laF"
 
 # PhpStorm
 alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+
+# PHP
+alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
+alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 
 # Redis
 alias flush-redis="redis-cli FLUSHALL"
