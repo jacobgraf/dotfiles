@@ -99,3 +99,5 @@ alias pa="php artisan"
 alias pip="/usr/local/bin/pip3"
 alias python="/usr/local/bin/python3"
 alias dotfiles="cd ~/.dotfiles && subl ."
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias update='brew update; brew upgrade; brew cleanup; composer global update'
