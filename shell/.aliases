@@ -1,4 +1,5 @@
 # PHP
+alias pest="vendor/bin/pest"
 alias phpunit="vendor/bin/phpunit"
 alias phpunitw="phpunit-watcher watch"
 alias a="php artisan"
@@ -8,6 +9,7 @@ alias cu="composer update"
 alias cr="composer require"
 alias ci="composer install"
 alias cda="composer dump-autoload -o"
+alias larastan="vendor/bin/phpstan analyse"
 alias hostfile="sudo vi /etc/hosts"
 alias deploy='envoy run deploy'
 alias deploy-code='envoy run deploy-code'
