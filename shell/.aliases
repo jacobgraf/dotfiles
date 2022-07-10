@@ -48,7 +48,7 @@ alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 alias flush-redis="redis-cli FLUSHALL"
 
 # VSCode
-alias code='open -a "/Applications/Visual Studio Code - Insiders.app" "`pwd`"'
+alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
