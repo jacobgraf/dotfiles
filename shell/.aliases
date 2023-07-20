@@ -47,15 +47,12 @@ alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 # Redis
 alias flush-redis="redis-cli FLUSHALL"
 
-# VSCode
-alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
-
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # IP addresses
-alias ip="curl https://diagnostic.opendns.com/myip ; echo"
+alias ip="curl ifconfig.me/ip ; echo"
 alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Flush Directory Service cache
@@ -101,7 +98,9 @@ alias nu="npm update"
 alias pa="php artisan"
 alias pip="/opt/homebrew/bin/pip3"
 alias python="/usr/local/bin/python3"
-alias dotfiles="cd ~/.dotfiles && subl ."
+alias dotfiles="cd ~/.dotfiles && code ."
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-alias update='brew update; brew upgrade; brew cleanup; composer global update; softwareupdate -i -a;'
-alias droid='scrcpy --stay-awake --disable-screensaver --turn-screen-off --hid-keyboard'
+alias update="brew update; brew upgrade; brew cleanup; composer global update; softwareupdate -i -a;"
+alias droid="scrcpy --stay-awake --disable-screensaver --turn-screen-off --hid-keyboard"
+alias php-log="open ~/.config/valet/Log/php-fpm.log"
+alias nginx-log="open ~/.config/valet/Log/nginx-error.log"

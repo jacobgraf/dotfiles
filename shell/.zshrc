@@ -88,3 +88,6 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#copilot
+eval "$(github-copilot-cli alias -- "$0")"
