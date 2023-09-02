@@ -106,3 +106,5 @@ alias droid="scrcpy --stay-awake --disable-screensaver --turn-screen-off --hid-k
 alias php-log="open ~/.config/valet/Log/php-fpm.log"
 alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
 alias code="code ."
+alias aliases="code ~/.dotfiles/shell/.aliases"
+alias next="npx create-next-app@latest"
