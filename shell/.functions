@@ -97,7 +97,7 @@ function commit() {
      aicommits
      return
   fi
-    
+
   eval "git commit -a -m '${commitMessage}'"
 }
 
@@ -154,4 +154,9 @@ function scheduler () {
 
 function silent() {
    "$@" >& /dev/null
+}
+
+function browse() {
+  url="https://$(basename "$(pwd)").test"
+  open "$url"
 }
