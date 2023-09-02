@@ -105,3 +105,4 @@ alias update="brew update; brew upgrade; brew cleanup; composer global update; s
 alias droid="scrcpy --stay-awake --disable-screensaver --turn-screen-off --hid-keyboard"
 alias php-log="open ~/.config/valet/Log/php-fpm.log"
 alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
+alias code="code ."
