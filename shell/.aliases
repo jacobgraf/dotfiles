@@ -86,7 +86,6 @@ alias touchbar="killall ControlStrip"
 
 # Other
 alias aliases="code ~/.dotfiles/shell/.aliases"
-alias brew='brew --ignore-macos-version'
 alias cc="php artisan config:cache"
 alias cgu="composer global update"
 alias cls="clear"
