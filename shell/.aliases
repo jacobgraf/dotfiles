@@ -1,25 +1,24 @@
 # PHP
-alias phpunit="vendor/bin/phpunit"
-alias phpunitw="phpunit-watcher watch"
 alias a="php artisan"
 alias ar="php artisan remote"
 alias c="composer"
-alias cu="composer update"
-alias cr="composer require"
-alias ci="composer install"
 alias cda="composer dump-autoload -o"
-alias larastan="vendor/bin/phpstan analyse"
-alias hostfile="sudo vi /etc/hosts"
-alias deploy='envoy run deploy'
+alias ci="composer install"
+alias copykey='command cat ~/.ssh/id_rsa.public | pbcopy'
+alias cr="composer require"
+alias cu="composer update"
+alias d="php artisan dusk"
 alias deploy-code='envoy run deploy-code'
+alias deploy='envoy run deploy'
+alias hostfile="sudo vi /etc/hosts"
+alias larastan="vendor/bin/phpstan analyse"
 alias mfs='php artisan migrate:fresh --seed'
 alias nah='git reset --hard;git clean -df'
-
+alias phpunit="vendor/bin/phpunit"
+alias phpunitw="phpunit-watcher watch"
 alias pp="php artisan test --parallel"
-alias d="php artisan dusk"
-alias sshconfig="vi ~/.ssh/config"
-alias copykey='command cat ~/.ssh/id_rsa.public | pbcopy'
 alias sail='./vendor/bin/sail'
+alias sshconfig="vi ~/.ssh/config"
 alias tunnel='valet share -subdomain=jacobgraf -region=us'
 
 # JavaScript
@@ -27,9 +26,9 @@ alias jest="./node_modules/.bin/jest"
 
 # Git
 alias gc="git checkout"
-alias gpo="git push origin"
-alias gm="git merge"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gm="git merge"
+alias gpo="git push origin"
 alias uncommit="git reset --soft HEAD~1"
 
 # Fast open
@@ -42,15 +41,15 @@ alias l="ls -laF"
 alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 
 # PHP
-alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
 alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
+alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
 
 # Redis
 alias flush-redis="redis-cli FLUSHALL"
 
 # Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 
 # IP addresses
 alias ip="curl ifconfig.me/ip ; echo"
@@ -86,27 +85,28 @@ alias subl='open -a "/Applications/Sublime Text.app" "`pwd`"'
 alias touchbar="killall ControlStrip"
 
 # Other
-alias cls="clear"
+alias aliases="code ~/.dotfiles/shell/.aliases"
+alias brew='brew --ignore-macos-version'
 alias cc="php artisan config:cache"
 alias cgu="composer global update"
-alias pu="clear && phpunit"
-alias nrd="npm run dev"
+alias cls="clear"
+alias code="code ."
+alias dotfiles="cd ~/.dotfiles && code ."
+alias droid="scrcpy --turn-screen-off --disable-screensaver --show-touches --stay-awake --keyboard=aoa"
+alias next="npx create-next-app@latest"
+alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
 alias nrb="npm run build"
+alias nrbstory="npm run build-storybook"
+alias nrd="npm run dev"
+alias nrp="npm run prod"
 alias nrs="npm run start"
 alias nrstory="npm run storybook"
-alias nrbstory="npm run build-storybook"
-alias nrp="npm run prod"
 alias nrw="npm run watch"
 alias nu="npm update"
 alias pa="php artisan"
-alias pip="/opt/homebrew/bin/pip3"
-alias python="/usr/local/bin/python3"
-alias dotfiles="cd ~/.dotfiles && code ."
-alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-alias update="brew update; brew upgrade; brew cleanup; composer global update; softwareupdate -i -a;"
-alias droid="scrcpy --turn-screen-off --disable-screensaver --show-touches --stay-awake --keyboard=aoa"
 alias php-log="open ~/.config/valet/Log/php-fpm.log"
-alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
-alias code="code ."
-alias aliases="code ~/.dotfiles/shell/.aliases"
-alias next="npx create-next-app@latest"
+alias pip="/opt/homebrew/bin/pip3"
+alias pu="clear && phpunit"
+alias python="/usr/local/bin/python3"
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias update="brew update && brew upgrade && brew cleanup; composer global update; softwareupdate -i -a;"
