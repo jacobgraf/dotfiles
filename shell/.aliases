@@ -108,4 +108,4 @@ alias pip="/opt/homebrew/bin/pip3"
 alias pu="clear && phpunit"
 alias python="/usr/local/bin/python3"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-alias update="brew update && brew upgrade && brew cleanup; composer global update; softwareupdate -i -a;"
+# alias update="brew update && brew upgrade --greedy && brew cleanup; composer global update; softwareupdate -i -a;"
