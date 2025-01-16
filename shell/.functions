@@ -162,29 +162,7 @@ function browse() {
 }
 
 update() {
-   local greedy_flag=""
-   local run_apple_updates=""
-
-   # Ask if Homebrew should upgrade all apps
-   read -q "greedy?Do you want Brew to upgrade ALL apps? (y/n): "
-   echo
-   if [[ $greedy == "y" ]]; then
-      greedy_flag="--greedy"
-   fi
-
-   # Ask if Apple Software Updates should be run
-   read -q "apple_updates?Do you want to run Apple Software Updates? (y/n): "
-   echo
-   if [[ $apple_updates == "y" ]]; then
-      run_apple_updates=true
-   fi
-
-   # Perform updates
-   brew update && brew upgrade $greedy_flag && brew cleanup
+   brew update && brew upgrade && brew cleanup
    composer global update
-
-   # Run Apple Software Updates only if the user agreed
-   if [[ $run_apple_updates == true ]]; then
-      softwareupdate -i -a
-   fi
+   softwareupdate -i -a
 }
