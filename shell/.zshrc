@@ -9,8 +9,7 @@ ZSH_CUSTOM=$HOME/.dotfiles/misc/oh-my-zsh-custom
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-# Hide username in prompt
-DEFAULT_USER=`whoami`
+# DEFAULT_USER is now set in .zshenv
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -19,7 +18,7 @@ plugins=(git laravel4 laravel5 composer macos vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=Users/$DEFAULT_USER/.rvm/gems/ruby-2.1.2/bin:$PATH
+# Ruby PATH is now managed in .zshenv
 #set numeric keys
 # 0 . Enter
 bindkey -s "^[Op" "0"
@@ -63,40 +62,25 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Alias hub to git
 eval "$(hub alias -s)"
 
-# Sudoless npm https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
-NPM_PACKAGES="${HOME}/.npm-packages"
-export PATH="$PATH:$NPM_PACKAGES/bin"
-# Preserve MANPATH if you already defined it somewhere in your config.
-# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
-export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
-
-export PATH=$HOME/.dotfiles/bin:$PATH
+# NPM packages and PATH settings moved to .zshenv
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # Import ssh keys in keychain
-ssh-add -A 2>/dev/null;
+ssh-add -A 2>/dev/null
 
-# Setup xdebug
-export XDEBUG_CONFIG="idekey=VSCODE"
+# XDEBUG_CONFIG moved to .zshenv
 
 # Enable autosuggestions
 source ~/.dotfiles/misc/oh-my-zsh-custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Extra paths
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
+# Extra paths moved to .zshenv
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv >/dev/null; then eval "$(rbenv init -)"; fi
 
 #copilot
 eval "$(github-copilot-cli alias -- "$0")"
 
-# fnm
-export PATH="/Users/$DEFAULT_USER/Library/Application Support/fnm:$PATH"
-eval "`fnm env`"
+# fnm use-on-cd feature (interactive shell only)
+eval "$(fnm env --use-on-cd 2>/dev/null)" || true
 
-eval "$(fnm env --use-on-cd)"
-
-# do not update all homebrew stuff automatically
-export HOMEBREW_NO_AUTO_UPDATE=1
+# Homebrew auto-update setting moved to .zshenv
