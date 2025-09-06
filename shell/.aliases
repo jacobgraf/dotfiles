@@ -91,7 +91,7 @@ alias cgu="composer global update"
 alias cls="clear"
 # alias code="code ."
 alias dotfiles="cd ~/.dotfiles && code ."
-alias droid="scrcpy --turn-screen-off --disable-screensaver --stay-awake --keyboard=uhid --video-codec=h264 --video-bit-rate=16M --max-fps=120 --max-size=1920 --window-title Aldo"
+alias droid='scrcpy --turn-screen-off --disable-screensaver --stay-awake --keyboard=uhid --video-bit-rate=12M --max-fps=60 --max-size=1920 --prefer-text --window-title "Android Mirroring"'
 alias next="npx create-next-app@latest"
 alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
 alias nrb="npm run build"
@@ -110,3 +110,4 @@ alias pu="clear && phpunit"
 alias python="/usr/local/bin/python3"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias yay="open raycast://extensions/raycast/raycast/confetti"
+alias nah="git reset --hard;git clean -df"
